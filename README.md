@@ -7,8 +7,6 @@ This project will be evaluating the variables in home prices based on a group of
 ## EDA (EXPLATORY DATA ANALYIS)
 Looking at the data
 
-
-
 ## ANALYSIS
 
 ## CONCLUSIONS
