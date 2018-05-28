@@ -9,7 +9,7 @@ summary(df$SalePrice)
 df <- as.data.frame(unclass(df))
 str(df) #shows that data is now coverted from character to factors
 library(data.table)
-dt <- as.data.table(df) #converts data.frame into data.table
-dtnew <- dt[, lapply(.SD, as.numeric)] #converts data.table into numeric
+dt <- as.data.table(df) #converts data.frame into data.tableic)] #converts data.table into numeric
+dt <- dt[,lapply(.SD, as.numeric)] #converts all columns to numeric
 Warning message:
-  In lapply(.SD, as.numeric) : NAs introduced by coercion str(dtnew)
+  In lapply(.SD, as.numeric) : NAs introduced by coercion
