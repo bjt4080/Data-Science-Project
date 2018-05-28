@@ -8,3 +8,6 @@ summary(df$SalePrice)
 #To unclass all data 
 df <- as.data.frame(unclass(df))
 str(df) #shows that data is now coverted from character to factors
+library(data.table)
+dt <- as.data.table(df) #converts data.frame into data.table
+str(dt)
