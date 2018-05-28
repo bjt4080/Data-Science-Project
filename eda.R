@@ -1,1 +1,1 @@
-load(House_test)
+str(House_test)
