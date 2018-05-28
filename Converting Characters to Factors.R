@@ -10,4 +10,6 @@ df <- as.data.frame(unclass(df))
 str(df) #shows that data is now coverted from character to factors
 library(data.table)
 dt <- as.data.table(df) #converts data.frame into data.table
-str(dt)
+dtnew <- dt[, lapply(.SD, as.numeric)] #converts data.table into numeric
+Warning message:
+  In lapply(.SD, as.numeric) : NAs introduced by coercion str(dtnew)
