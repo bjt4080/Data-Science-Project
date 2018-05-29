@@ -1,1 +1,0 @@
-str(House_test)
