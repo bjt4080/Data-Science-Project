@@ -7,9 +7,12 @@ This project will be evaluating the variables in home prices based on a group of
 ## EDA (EXPLATORY DATA ANALYIS)
 Looking at the data
 
+#Scatterplot
+![Scatterplot](Rplot.png)
+#Boxplot
+
 ## ANALYSIS
 
 ## CONCLUSIONS
 link to your video presentation
 
-(https://octodex.github.com/images/yaktocat.png)
