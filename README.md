@@ -11,3 +11,5 @@ Looking at the data
 
 ## CONCLUSIONS
 link to your video presentation
+
+(https://octodex.github.com/images/yaktocat.png)
