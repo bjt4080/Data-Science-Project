@@ -13,3 +13,4 @@ dt <- as.data.table(df) #converts data.frame into data.tableic)] #converts data.
 dt <- dt[,lapply(.SD, as.numeric)] #converts all columns to numeric
 Warning message:
   In lapply(.SD, as.numeric) : NAs introduced by coercion
+hist(dt)
