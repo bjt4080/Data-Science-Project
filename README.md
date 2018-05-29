@@ -8,7 +8,7 @@ This project will be evaluating the variables in home prices based on a group of
 Looking at the data
 
 #Scatterplot
-![Scatterplot](Rplot.png)
+![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
 #Boxplot
 
 ## ANALYSIS
