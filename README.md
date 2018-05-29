@@ -9,7 +9,11 @@ Looking at the data
 
 #Scatterplot
 ![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
+
+
 #Boxplot
+![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
+
 
 ## ANALYSIS
 
