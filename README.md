@@ -16,8 +16,8 @@ Looking at the data
  
 
 ## ANALYSIS
-*VarImp
-*Missing Values
+* VarImp
+* Missing Values
 
 ## CONCLUSIONS
 link to your video presentation
