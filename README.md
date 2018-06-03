@@ -3,6 +3,7 @@ Ben's Project
 
 # Project Overview
 <<<<<<< HEAD
+<<<<<<< HEAD
 This project will be evaluating the variables in home prices based on a group of 79 certain variabesl. In this project we are going to try to determine how to predict housing prices based on home variables.
 
 ## EDA (EXPLATORY DATA ANALYIS)
@@ -19,9 +20,21 @@ Now that the data has been converted to numeric values, we can begin doing some 
 =======
 This project will be evaluating the variables in home prices based on a group of 79 certain variables. In this project we are going to try to determine how to predict housing prices based on home variables. 
 
+=======
+This project will be evaluating the variables in home prices based on a group of 79 certain variables. In this project we are going to try to determine how to predict housing prices based on home variables. 
+
+>>>>>>> 8fad03994a7fb55e5ea121720cfeffd8ea7a94f7
 ## EDA (EXPLATORY DATA ANALYSIS)
 Looking at the data
 >>>>>>> 8fad03994a7fb55e5ea121720cfeffd8ea7a94f7
+
+#Scatterplot
+![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
+
+
+#Boxplot
+![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
+ 
 
 #Scatterplot
 ![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
@@ -39,7 +52,10 @@ Looking at the data
 link to your video presentation
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 Update
+=======
+>>>>>>> 8fad03994a7fb55e5ea121720cfeffd8ea7a94f7
 =======
 >>>>>>> 8fad03994a7fb55e5ea121720cfeffd8ea7a94f7
