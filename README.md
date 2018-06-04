@@ -38,8 +38,11 @@ Looking at the data
 #Plot
 ![rplot01](https://user-images.githubusercontent.com/25735405/40893807-73736cb6-6759-11e8-9298-aa7d95b9fb64.png)
 
-Price Vs. Condition
+Price Vs. Overall Condition (1-10 scale, 10 being best condition)
 ![condition](https://user-images.githubusercontent.com/25735405/40893912-671a4646-675a-11e8-9fca-2324b7fd3539.png)
+
+Price Vs. Overall Quality (1-10 scale, 10 being highest quality) 
+![quality](https://user-images.githubusercontent.com/25735405/40893997-222cb14e-675b-11e8-843f-ebee768f533f.png)
 
 
 #Boxplot
