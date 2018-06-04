@@ -36,7 +36,7 @@ Looking at the data
  
 
 #Scatterplot
-!(/Users/benturner/Documents/SalePrice~YearBuilt.png)
+![Boxer](/Users/benturner/Documents/SalePrice~YearBuilt.png)
 
 
 #Boxplot
