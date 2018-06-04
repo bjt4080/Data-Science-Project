@@ -35,8 +35,9 @@ Looking at the data
 ![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
  
 
-#Scatterplot
-![Boxer](/Users/benturner/Documents/SalePrice~YearBuilt.png)
+#Plot
+![rplot01](https://user-images.githubusercontent.com/25735405/40893807-73736cb6-6759-11e8-9298-aa7d95b9fb64.png)
+
 
 
 #Boxplot
