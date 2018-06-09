@@ -44,6 +44,16 @@ Price Vs. Overall Quality (1-10 scale, 10 being highest quality)
 
 #Plotting without Outliers
 ![rplot03](https://user-images.githubusercontent.com/25735405/41139466-9f5bbd06-6a9c-11e8-953a-ebaeaf57ee77.png)
+
+s we run the data for the missing values we see that there are 34 features with missing values, but I'm only going to list the top 5 to address those:
+1. PoolQC : Pool quality
+2. MiscFeature: Miscellaneious feature not covered in other categories 
+3. Alley: Type of alley access to propety
+4. Fence: Fence Quality
+5. FireplaceQU: Fireplace Quality
+
+Let's take a look at the summary of those values: 
+summary(PoolQC)
  
 
 ## ANALYSIS
