@@ -12,20 +12,10 @@ Feature selection is the automatic selection of attributes in the data that are 
 
 Now that the data has been converted to numeric values, we can begin doing some correlation analysis. The first is the scatterplot below.
 
-
-
-
-
-=======
 This project will be evaluating the variables in home prices based on a group of 79 certain variables. In this project we are going to try to determine how to predict housing prices based on home variables. 
 
-=======
-This project will be evaluating the variables in home prices based on a group of 79 certain variables. In this project we are going to try to determine how to predict housing prices based on home variables. 
-
->>>>>>> 8fad03994a7fb55e5ea121720cfeffd8ea7a94f7
 ## EDA (EXPLATORY DATA ANALYSIS)
 Looking at the data
->>>>>>> 8fad03994a7fb55e5ea121720cfeffd8ea7a94f7
 
 #Scatterplot
 ![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
@@ -47,6 +37,13 @@ Price Vs. Overall Quality (1-10 scale, 10 being highest quality)
 
 #Boxplot
 ![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
+
+
+#Plotting with Outliers 
+![rplot4](https://user-images.githubusercontent.com/25735405/41139323-b83e942a-6a9b-11e8-81a4-3f285c08a510.png)
+
+#Plotting without Outliers
+![rplot03](https://user-images.githubusercontent.com/25735405/41139466-9f5bbd06-6a9c-11e8-953a-ebaeaf57ee77.png)
  
 
 ## ANALYSIS
