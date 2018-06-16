@@ -45,8 +45,10 @@ Price Vs. Overall Quality (1-10 scale, 10 being highest quality)
 #Plotting without Outliers
 ![rplot03](https://user-images.githubusercontent.com/25735405/41139466-9f5bbd06-6a9c-11e8-953a-ebaeaf57ee77.png)
 
-#Missing Values Graphic
+#Missing Values Graphic for Test Data
 ![missingness test](https://user-images.githubusercontent.com/25735405/41495351-f42e1b56-70d9-11e8-9817-9b26a042b0dd.png)
+
+#Train Data
 ![missingness train](https://user-images.githubusercontent.com/25735405/41495353-f5f3cb0c-70d9-11e8-9c38-4552d7b34a6c.png)
 
 
