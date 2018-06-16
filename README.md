@@ -46,8 +46,8 @@ Price Vs. Overall Quality (1-10 scale, 10 being highest quality)
 ![rplot03](https://user-images.githubusercontent.com/25735405/41139466-9f5bbd06-6a9c-11e8-953a-ebaeaf57ee77.png)
 
 #Missing Values Graphic
-![missing map](https://user-images.githubusercontent.com/25735405/41495270-280ac20a-70d8-11e8-8d90-5b435543db7c.png)
-![missing map test](https://user-images.githubusercontent.com/25735405/41495271-29f27536-70d8-11e8-94c7-af9a1b38b51a.png)
+
+
 
 s we run the data for the missing values we see that there are 34 features with missing values, but I'm only going to list the top 5 to address those:
 1. PoolQC : Pool quality
