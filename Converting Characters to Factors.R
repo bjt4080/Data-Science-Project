@@ -6,7 +6,7 @@ df <- fread("/Users/benturner/housetrain.csv",colClasses = c("MiscFeature"='char
 colnames(df)
 summary(df$SalePrice)
 #To unclass all data 
-df <- as.data.frame(unclass(df))
+missmap(df[,1:80],
 str(df) #shows that data is now coverted from character to factors
 library(data.table)
 dt <- as.data.table(df) #converts data.frame into data.tableic)] #converts data.table into numeric

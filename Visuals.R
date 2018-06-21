@@ -1,4 +1,7 @@
 #Doing some visualization with the data
-scatterplot(dt$SalePrice ~ dt$YearBuilt, data=train,  xlab="dt$Year Built", ylab="Sale Price", grid=FALSE)
-boxplot(dt$SalePrice ~ dt$YearBuilt, data=train,  xlab="dt$Year Built", ylab="Sale Price", grid=FALSE)
+plot(SalePrice~YearBuilt, data=train, xlab="Year Built", ylab="Sale Price", grid=FALSE, col="green")
+abline(lm(SalePrice~YearBuilt), col="red") #Added simple regression line
+lines(lowess(SalePrice~YearBuilt), col="blue") #lowess line
+boxplot(SalePrice, YearBuilt, data=train, xlab="Year Built", ylab="Sale Price")
 
+plot(SalePrice~OverallCond, data=train, xlab="Overall Condition", ylab = "Sale Price", main = "Does Condition effect Price?", col="blue")
