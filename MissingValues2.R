@@ -14,4 +14,5 @@ summary(GarageArea)
 summary(Fence)
 summary(FireplaceQu)
 #Given that these have over half the values missing for each, I think it's best if we just get rid of these values instead of assign values for them 
+df
 

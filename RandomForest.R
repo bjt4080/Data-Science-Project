@@ -248,11 +248,10 @@ samples <- sample.split(df_train$SalePrice,SplitRatio = 0.7)
 s_train <- subset(df_train,samples == TRUE)
 s_test <- subset(df_train, samples == FALSE)
 
-#Random Forest Time! 
-model <- randomForest(SalePrice ~. , data = s_train, method = "anova", 
-                      ntree = 1000,
-                      mtry = 26,
-                      replace = F,
-                      nodesize = 1,
-                      importance = T)
-]
+#rpart!
+fit <- rpart(SalePrice ~ LotArea + YearBuilt + Condition1 + FullBath + BedroomAbvGr + TotRmsAbvGrd
+             ,data = train)
+plot(fit, uniform = TRUE)
+text(fit, cex=.6)
+model <- rpart(SalePrice ~., data = train, method = "anova")
+rf <- randomForest(SalePrice~.,data=train,ntree=1000,proximity=TRUE)
