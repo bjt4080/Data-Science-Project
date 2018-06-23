@@ -39,20 +39,16 @@ Looking at Sale Price V. Year Built V. Overall Quality
 
 This plot show a the relationship between the SalePrice, YearBuilt and OverallQuality. It seems that houses from recent years have better grade of quality.
 
-#Boxplot
-![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
-
-
-#Plotting with Outliers 
+Plotting with Outliers 
 ![rplot4](https://user-images.githubusercontent.com/25735405/41139323-b83e942a-6a9b-11e8-81a4-3f285c08a510.png)
 
-#Plotting without Outliers
+Plotting without Outliers
 ![rplot03](https://user-images.githubusercontent.com/25735405/41139466-9f5bbd06-6a9c-11e8-953a-ebaeaf57ee77.png)
 
-#Missing Values Graphic for Test Data
+Missing Values Graphic for Test Data
 ![missingness test](https://user-images.githubusercontent.com/25735405/41495351-f42e1b56-70d9-11e8-9817-9b26a042b0dd.png)
 
-#Train Data
+Train Data
 ![missingness train](https://user-images.githubusercontent.com/25735405/41495353-f5f3cb0c-70d9-11e8-9c38-4552d7b34a6c.png)\
 
 
