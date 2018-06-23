@@ -14,6 +14,8 @@ Now that the data has been converted to numeric values, we can begin doing some 
 
 This project will be evaluating the variables in home prices based on a group of 79 certain variables. In this project we are going to try to determine how to predict housing prices based on home variables. 
 
+We see 
+
 ## EDA (EXPLATORY DATA ANALYSIS)
 Looking at the data
 
@@ -52,15 +54,17 @@ Train Data
 ![missingness train](https://user-images.githubusercontent.com/25735405/41495353-f5f3cb0c-70d9-11e8-9c38-4552d7b34a6c.png)\
 
 
-
-
-
-s we run the data for the missing values we see that there are 34 features with missing values, but I'm only going to list the top 5 to address those:
-1. PoolQC : Pool quality
-2. MiscFeature: Miscellaneious feature not covered in other categories 
-3. Alley: Type of alley access to propety
-4. Fence: Fence Quality
-5. FireplaceQU: Fireplace Quality
+Looking at the data we have a ton of values that are missing data. I've decided to input the missing values into missing data points based on what would most make sense for my model. For instance, the variable for Garage Year Built has missing values. When I run a summary for this data, I get the following: 
+> summary(df$GarageYrBlt)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1900    1962    1979    1979    2001    2010 
+   
+ In this case, it is probably best to use the median, I've decided to use the median of 1979 to use for all missing values for this partiuclar variable. 
+ 
+ In another case, I've used just the most frequent feature. For example, the varibale of MSZoing, which refers to how a house is zoned (residential, commerical, etc). As we can see from the table, the vast majority of data is zoned as 'RL', so we will use this to input for the missing values. 
+ > table(df$MSZoning)
+C (all)      FV      RH      RL      RM 
+     10      65      16    1151     218 
 
 #Histogram of Lot Frontage
 ![lotfronrtage](https://user-images.githubusercontent.com/25735405/41504551-8a47cd4e-71a7-11e8-8347-9f9cdb781462.png)
