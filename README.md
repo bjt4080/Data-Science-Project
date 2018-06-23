@@ -34,6 +34,9 @@ Price Vs. Overall Condition (1-10 scale, 10 being best condition)
 Price Vs. Overall Quality (1-10 scale, 10 being highest quality) 
 ![quality](https://user-images.githubusercontent.com/25735405/40893997-222cb14e-675b-11e8-843f-ebee768f533f.png)
 
+Looking at Sale Price V. Year Built V. Overall Quality
+![salepricevquality](https://user-images.githubusercontent.com/25735405/41806217-a1254a66-766e-11e8-9dbe-8c98912da6c1.png)
+
 
 #Boxplot
 ![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
