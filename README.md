@@ -37,6 +37,7 @@ Price Vs. Overall Quality (1-10 scale, 10 being highest quality)
 Looking at Sale Price V. Year Built V. Overall Quality
 ![salepricevquality](https://user-images.githubusercontent.com/25735405/41806217-a1254a66-766e-11e8-9dbe-8c98912da6c1.png)
 
+This plot show a the relationship between the SalePrice, YearBuilt and OverallQuality. It seems that houses from recent years have better grade of quality.
 
 #Boxplot
 ![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
