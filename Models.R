@@ -8,4 +8,5 @@ model2 <- rpart(SalePrice ~ OverallQual + YearBuilt + TotRmsAbvGrd,
 predicted_prices <- predict(model2, newdata = test)
 head(predicted_prices)
 
-
+Error in na.fail.default(list(SalePrice = c(NA, NA, NA, NA, NA, NA, NA,  : 
+                                              missing values in object
