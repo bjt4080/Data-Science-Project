@@ -19,14 +19,22 @@ We see
 ## EDA (EXPLATORY DATA ANALYSIS)
 Looking at the data
 
+## ANALYSIS
+* VarImp
+* Missing Values
+
 #Scatterplot
 ![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
+<<<<<<< HEAD
 
 
 #Boxplot
 ![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
 
 
+=======
+ 
+>>>>>>> 7620703f92f72e3fccf45e82e822ac40a4f568ec
 #Plot
 ![rplot01](https://user-images.githubusercontent.com/25735405/40893807-73736cb6-6759-11e8-9298-aa7d95b9fb64.png)
 
@@ -82,9 +90,8 @@ C (all)      FV      RH      RL      RM
 Let's take a look at the summary of those values:
 summary(PoolQC)
 
-## ANALYSIS
-* VarImp
-* Missing Values
+
 
 ## CONCLUSIONS
-link to your video presentation
+
+
