@@ -1,4 +1,9 @@
-test$SalePrice <- rep(NA, 1459)
+test <- fread("/Users/benturner/Documents/GitHub/Data-Science-Project/test.csv", stringsAsFactors = FALSE)
+train<- fread("/Users/benturner/Documents/GitHub/Data-Science-Project/train.csv", stringsAsFactors = FALSE)
+#Create a column in test file and feed a dummy value to it
+test$SalePrice <- 0
+df <- rbind(train,test)
+sttest$SalePrice <- rep(NA, 1459)
 df<-rbind(train, test)
 str(df)
 #We can use the package Amelia to visualize what is missing and what values those are
@@ -13,6 +18,5 @@ summary(SalePrice)
 summary(GarageArea)
 summary(Fence)
 summary(FireplaceQu)
-#Given that these have over half the values missing for each, I think it's best if we just get rid of these values instead of assign values for them 
-df
+
 

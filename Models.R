@@ -1,26 +1,42 @@
-model1 <- randomForest(SalePrice ~ LotArea + OverallQual + YearBuilt + TotRmsAbvGrd, 
-                      data = train)
-predicted_prices <- predict(model1, newdata = test)
-head(predicted_prices)
+#Now we will split the data set between train and test
+test <- fread("/Users/benturner/Documents/GitHub/Data-Science-Project/test.csv", stringsAsFactors = FALSE)
+train<- fread("/Users/benturner/Documents/GitHub/Data-Science-Project/train.csv", stringsAsFactors = FALSE)
+#Create a column in test file and feed a dummy value to it
+test$SalePrice <- 0
+df <- rbind(train,test)
+sttest$SalePrice <- rep(NA, 1459)
+df<-rbind(train, test)
 
-model2 <- rpart(SalePrice ~ OverallQual + YearBuilt + TotRmsAbvGrd, 
-                data = train)
-predicted_prices <- predict(model2, newdata = test)
-head(predicted_prices)
-
-fit <- randomForest(SalePrice ~ Neighborhood + MSSubClass + MSZoning + Street + YearBuilt + 
-                      LotShape + LandContour + Utilities + LotConfig + LandSlope + Condition1 + Condition2 + 
-                      BldgType + HouseStyle + OverallQual + OverallCond + RoofStyle + RoofMatl + Exterior1st + 
-                      Exterior2nd + MasVnrType + ExterQual + ExterCond + Foundation + BsmtQual + BsmtCond + 
-                      BsmtExposure + BsmtFinType1 + BsmtFinType2 + Heating + HeatingQC + CentralAir + Electrical + 
-                      KitchenQual + Functional + GarageType + GarageFinish + GarageQual + GarageCond + PavedDrive +
-                      SaleCondition + SaleType + LotArea + MasVnrArea + BsmtFinSF1 + 
-                      BsmtFinSF2 + BsmtUnfSF + TotalBsmtSF + BsmtFullBath + BsmtHalfBath + 
-                      FullBath + HalfBath + BedroomAbvGr + KitchenAbvGr + TotRmsAbvGrd + GarageCars + GarageArea + 
-                      WoodDeckSF + OpenPorchSF + EnclosedPorch + ScreenPorch + PoolArea + 
-                      MoSold + YrSold, 
-                    data=train, importance=TRUE, ntree=2000)
+df_train <- df[1:1460,]
+df_test <- df[1461:2919,]
 
 
-Error in na.fail.default(list(SalePrice = c(NA, NA, NA, NA, NA, NA, NA,  : 
-                                              missing values in object
+set.seed(40)
+
+# create a split ratiom, after looking it does look like 70% was a good ratio to use for train
+samples <- sample.split(df_train$SalePrice,SplitRatio = 0.7)
+s_train <- subset(df_train,samples == TRUE)
+s_test <- subset(df_train, samples == FALSE)
+
+#rpart!
+fit <- rpart(SalePrice ~., data = df_train, method = "anova")
+plot(fit, uniform = TRUE)
+text(fit, cex=.6)
+
+predict <- predict(fit,test)
+head(predict)
+tail(predict)
+
+complete.cases(df_train)
+library(caret)
+
+
+ggplot(fit)
+
+model <- randomForest(SalePrice ~., data = df_train, method = "anova",
+                      ntree = 300,
+                      mtry = 26,
+                      replace = F,
+                      nodesize = 1,
+                      importance = T)
+]
