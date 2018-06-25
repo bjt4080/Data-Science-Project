@@ -3,18 +3,19 @@ E
 
 # Project Overview
 
-This project will be evaluating the variables in home prices based on a group of 79 certain variabesl. In this project we are going to try to determine how to predict housing prices based on home variables.
+This project will be evaluating 79 different variables that are provided in a Kaggle competition dataset. The variables describe almost every different of aspect of a house. The data includes obvious variables like square footage, number of bedrooms, and number of bathrooms, to much more less known variables, such as basement square footage, to what shape the lot of the house is on, to whether or not the house has alley access.
+
+The dependent variable in this project will be the Sale Price.  In this project we are going to try to determine how to predict housing prices based on home variables.
 
 ## EDA (EXPLATORY DATA ANALYIS)
-In this project I will need 
+The EDA will begin by trying to understand how the dependent variables and independent variables relate to each other and the cause for that relationship. Our EDA will also involve some data cleaning, how to handle the missing data, and how to deal with the categorical variables. 
 
-Feature selection is the automatic selection of attributes in the data that are most relevant to the predictive modeling. This is done by reducing the number
+The data for this project is split up between a test and a train data set. When running the first initial EDA, we find that we have A LOT of missing data. So we will not be able to run a reliable predictive model until we will those values in. Overall there are 34 different variables missing data or NA’s, and a grand total of 13,965 NA or missing values in total.  
 
-Now that the data has been converted to numeric values, we can begin doing some correlation analysis. The first is the scatterplot below.
+For the variables, I either input the median value or whatever the majority value was. For example, the highest variables with missing values was the pool area. Since the majority of houses came back with a “None” value, I will use that and replace all missing values for Pool QC with None. 
 
-This project will be evaluating the variables in home prices based on a group of 79 certain variables. In this project we are going to try to determine how to predict housing prices based on home variables.
+For numerical variables, such as Year Built, referring to what year the house was built in, we look to see if it has a normal or skewed distribution. For normal distributions, it is best to use mean for our model. If the variable has a skewed distribution, then it is best is we use the median value. For this variable, based on the histogram this looks like a skewed distribution as most of the houses are built 1960 or so and later, and a large proportion of them built after 1990’s, so we will use the median for this value of 1979. 
 
-We see 
 
 ## EDA (EXPLATORY DATA ANALYSIS)
 Looking at the data
@@ -177,22 +178,18 @@ Pool QC
    4    2    4 2909 
 [1] "Ex"   "Fa"   "Gd"   "None"
 
-## ANALYSIS
-* VarImp
-* Missing Values
-
 
 
 #Scatterplot
 ![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
-<<<<<<< HEAD
+
 
 
 #Boxplot
 ![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
 
 
-=======
+
  
 >>>>>>> 7620703f92f72e3fccf45e82e822ac40a4f568ec
 #Plot
@@ -245,10 +242,19 @@ Looking at the data we have a ton of values that are missing data. I've decided 
  > table(df$MSZoning)
 C (all)      FV      RH      RL      RM 
      10      65      16    1151     218 
->>>>>>> cae0f15bab73f1ff22388e80a7ce9fa9a04296da
+
 
 Let's take a look at the summary of those values:
 summary(PoolQC)
+
+
+The result I focused on here was R-Squared. R – squared is a statistical measure of how close the data are to the fitted regression line. Typically, the higher the R-squared, the better the model fits your data. So in this case my R-squared value was 
+Residual standard error: 43390 on 708 degrees of freedom
+Multiple R-squared:  0.9597,	Adjusted R-squared:  0.834 
+F-statistic: 7.635 on 2210 and 708 DF,  p-value: < 0.00000000000000022 
+
+The Adjusted R-Squared of .834 is the data I’m concered with. It should be noted that just because an R-squared value is not high,that does not mean that the model is bad. You can also have a high R-squared value, and the model does not fit the data 
+
 
 
 
