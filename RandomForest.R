@@ -224,29 +224,17 @@ df$YrSold <- as.factor(df$YrSold)
 df$MoSold <- as.factor(df$MoSold)
 df$MSSubClass <- as.factor(df$MSSubClass)
 
-#Use mice to impute values
-library(mice)
-raw_data <- mice(df, m=3, method='cart', maxit=1)
-
-
-df <- complete(raw_data)
-
 #Confirm that all missing values are accounted for
 any(is.na(df))
 
 #Now we will split the data set between train and test
 df_train <- df[1:1460,]
 df_test <- df[1461:2919,]
-library(e1071)
-insinstall.packages("caTools")
-library(caTools)
+
+df_clean <- rbind(df_train, df_test)
 
 set.seed(40)
 
-# create a split ratiom, after looking it does look like 70% was a good ratio to use for train
-samples <- sample.split(df_train$SalePrice,SplitRatio = 0.7)
-s_train <- subset(df_train,samples == TRUE)
-s_test <- subset(df_train, samples == FALSE)
 
 #rpart!
 fit <- rpart(SalePrice ~ LotArea + YearBuilt + Condition1 + FullBath + BedroomAbvGr + TotRmsAbvGrd
@@ -254,4 +242,8 @@ fit <- rpart(SalePrice ~ LotArea + YearBuilt + Condition1 + FullBath + BedroomAb
 plot(fit, uniform = TRUE)
 text(fit, cex=.6)
 model <- rpart(SalePrice ~., data = train, method = "anova")
-rf <- randomForest(SalePrice~.,data=train,ntree=1000,proximity=TRUE)
+
+
+rf1 <- randomForest(SalePrice~.,data=train, ntree=1000,proximity=TRUE)
+varImp(rf1)
+varImpPlot(rf1)

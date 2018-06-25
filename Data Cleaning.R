@@ -233,4 +233,12 @@ df$MSSubClass <- as.factor(df$MSSubClass)
 #Confirm that all missing values are accounted for
 any(is.na(df))
 
+df_train <- df[1:1460,]
+df_train[is.na(df_train)] <- 0
+
+df_test <- df[1461:2919,]
+
+clean<-df[1:2919,]
+write.csv(clean, file="clean1.csv")
+
 

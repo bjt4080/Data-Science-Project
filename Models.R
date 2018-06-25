@@ -26,17 +26,4 @@ text(fit, cex=.6)
 predict <- predict(fit,test)
 head(predict)
 tail(predict)
-
-complete.cases(df_train)
-library(caret)
-
-
-ggplot(fit)
-
-model <- randomForest(SalePrice ~., data = df_train, method = "anova",
-                      ntree = 300,
-                      mtry = 26,
-                      replace = F,
-                      nodesize = 1,
-                      importance = T)
-]
+varImp(fit)
