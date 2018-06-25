@@ -1,12 +1,12 @@
-# Data-Science-Project
-Ben's Project
+# MSDS 692 DATA SCIENCE PRACTICUM 
+E
 
 # Project Overview
 
 This project will be evaluating the variables in home prices based on a group of 79 certain variabesl. In this project we are going to try to determine how to predict housing prices based on home variables.
 
 ## EDA (EXPLATORY DATA ANALYIS)
-Looking at the data, what I'm going to need to do is make it so I can do some missing values data, some EDA, will need to do some major feature selction in order to get this project to run smoothly.
+In this project I will need 
 
 Feature selection is the automatic selection of attributes in the data that are most relevant to the predictive modeling. This is done by reducing the number
 
@@ -19,9 +19,16 @@ We see
 ## EDA (EXPLATORY DATA ANALYSIS)
 Looking at the data
 
+Pool QC
+  Ex   Fa   Gd None 
+   4    2    4 2909 
+[1] "Ex"   "Fa"   "Gd"   "None"
+
 ## ANALYSIS
 * VarImp
 * Missing Values
+
+
 
 #Scatterplot
 ![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
