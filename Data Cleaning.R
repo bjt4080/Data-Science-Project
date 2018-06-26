@@ -1,6 +1,6 @@
 #Data Cleaning
-test <- fread("/Users/benturner/Documents/GitHub/Data-Science-Project/test.csv", stringsAsFactors = FALSE)
-train<- fread("/Users/benturner/Documents/GitHub/Data-Science-Project/train.csv", stringsAsFactors = FALSE)
+test <- fread("/Users/benturner/test.csv", stringsAsFactors = FALSE)
+train<- fread("/Users/benturner/train.csv", stringsAsFactors = FALSE)
 #Create a column in test file and feed a dummy value to it
 test$SalePrice <- 0
 df <- rbind(train,test)
@@ -12,13 +12,50 @@ library(readr)
 library(plyr)
 library(dplyr)
 library(randomForest)
-library(Amelia)
 library(caret)
+library(Amelia)
+
+#Let's take a look at our data
+
+plot(SalePrice~YearBuilt, data=train, xlab="Year Built", ylab="Sale Price", grid=FALSE, col="green")
+
+abline(lm(df$SalePrice~df$YearBuilt), col="red") #Added simple regression line
+
+lines(lowess(df$SalePrice~df$YearBuilt), col="blue") #lowess line
+
+boxplot(SalePrice~YearBuilt, data=df, xlab="Year Built", ylab="Sale Price", col="green")
+#Plotting Condition Vs. Price
+plot(SalePrice~OverallCond, data=train, xlab="Overall Condition", ylab = "Sale Price", main = "Does Condition effect Price?", col="blue")
+#Plotting Sq Foot Vs. Price
+plot(SalePrice~GrLivArea, data=train, xlab="Sq. Footage", ylab = "Sale Price", main = "Sq Footage", col="blue")
+
+plot(SalePrice~GarageArea, data=train, xlab="Garage Area", ylab = "Sale Price", main = "Garage Area", col="red")
+
+plot(SalePrice~YrSold, data=train, xlab="Year Sold", ylab = "Sale Price", main = "Year Sold", col="green")
+
+plot(SalePrice~TotRmsAbvGrd, data=train, xlab="Total Rooms", ylab = "Sale Price", main = "Total Rooms", col="purple")
+
+#Let's check to see our data and how it's structured: 
+str(df)
+
+
 
 str(df)
 summary(df)
+
+combined<-rbind(train[, -81], test, fill=TRUE) #combining the data sets
+combined<-combined[, -1] 
+#View # of missing values per variable
+missing_ct<-colSums(apply(X = combined, MARGIN = 2, is.na))
+missing_ct[which(missing_ct > 0)]
+print(paste("There are ", length(missing_ct[which(missing_ct > 0)]), " variables have NAs."))
+print(paste("Total number of NAs:", sum(missing_ct)))
+
+#Let's check for missing values
 missmap(df, col = c('yellow','black'), legend = F, main= 'Missing   Values')
+
 #Adjusting the missing values
+
 # Pool QC will be replacing the NA values with none
 df$PoolQC <-as.character(df$PoolQC)
 df$PoolQC[is.na(df$PoolQC)] <- "None"
@@ -61,7 +98,7 @@ table(df$GarageQual)
 #Will repalce both these values with TA since since the majority are TA
 df$GarageCond[is.na(df$GarageCond)] <- "TA"
 table(df$GarageCond)
-df$GarageQual{is.na(df$GarageQual)} <-"TA"
+df$GarageQual[is.na(df$GarageQual)] <-"TA"
 table(df$GarageQual)
 
 #Garage Finish
@@ -113,7 +150,7 @@ df$MasVnrType[is.na(df$MasVnrType)] <- 'None'
 #MassVnr Area
 summary(df$MasVnrArea)
 #Will use '0' as majority of values are this
-df$MasVnrArea[is.na(df$MasVnrArea)] <- '0'
+df$MasVnrArea[is.na(df$MasVnrArea)] <- 0
 
 #MS Zoning
 table(df$MSZoning)
@@ -128,22 +165,23 @@ df$Utilities[is.na(df$Utilities)] <- 'Allpub'
 #BsmtFinSF1
 summary(df$BsmtFinSF1)
 #Will use 0 since not all houses have basements
-df$BsmtFinSF1[is.na(df$BsmtFinSF1)] <- '0'
+df$BsmtFinSF1[is.na(df$BsmtFinSF1)] <- 0
 
 #BsmFinSF2
 summary(df$BsmtFinSF2)
+hist(df$BsmtFinSF2)
 #Will use 0 since not all houses have basements
-df$BsmtFinSF2[is.na(df$BsmtFinSF2)] <- '0'
+df$BsmtFinSF2[is.na(df$BsmtFinSF2)] <- 0
 
 #BsmtFinsType1
 table(df$BsmtFinType1)
 #Will use 0 since not all houses have basements
-df$BsmtFinType1[is.na(df$BsmtFinType1)] <- '0'
+df$BsmtFinType1[is.na(df$BsmtFinType1)] <- 0
 
 #BsmtFinsType2
 table(df$BsmtFinType2)
 #Will use 0 since not all houses have basements
-df$BsmtFinType2[is.na(df$BsmtFinType2)] <- '0'
+df$BsmtFinType2[is.na(df$BsmtFinType2)] <- 0
 
 #Mason Veneer
 table(df$MasVnrType)
@@ -178,12 +216,12 @@ df$Electrical[is.na(df$Electrical)] <- 'SBrkr'
 #BasementFullBath
 table(df$BsmtFullBath)
 #Will replace with '0'
-df$BsmtFullBath[is.na(df$BsmtFullBath)] <- '0'
+df$BsmtFullBath[is.na(df$BsmtFullBath)] <- 0
 
 #BasementHalfBath
 table(df$BsmtHalfBath)
 #Will replace with '0'
-df$BsmtHalfBath[is.na(df$BsmtHalfBath)] <- '0'
+df$BsmtHalfBath[is.na(df$BsmtHalfBath)] <- 0
 
 #Kitchen Quality
 table(df$KitchenQual)
@@ -198,12 +236,13 @@ df$Functional[is.na(df$Functional)] <- 'Typ'
 #Garage Cars
 summary(df$GarageCars)
 #Will replace with 2 since it's median
-df$GarageCars[is.na(df$GarageCars)] <- '2'
+df$GarageCars[is.na(df$GarageCars)] <- 2
 
 #Garage Area
 summary(df$GarageArea)
+hist(df$GarageArea)
 #Will replace with 480 since it's median
-df$GarageArea[is.na(df$GarageArea)] <- '480'
+df$GarageArea[is.na(df$GarageArea)] <- 480
 
 #Garage Quality
 summary(df$GarageQual)
@@ -218,7 +257,7 @@ df$SaleType[is.na(df$SaleType)] <- 'WD'
 #Sale Price
 summary(df$SalePrice)
 #Will use '163000'
-df$SalePrice[is.na(df$SalePrice)] <- '163000'
+df$SalePrice[is.na(df$SalePrice)] <- 163000
 
 #So now that we have all the missing variabes addressed, we will want to change all character variables into factor variables
 for(i in colnames(df[,sapply(df, is.character)])){
@@ -240,5 +279,8 @@ df_test <- df[1461:2919,]
 
 clean<-df[1:2919,]
 write.csv(clean, file="clean1.csv")
+
+
+
 
 

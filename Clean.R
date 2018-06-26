@@ -1,1 +1,0 @@
-write.csv(df_clean, file = "clean.csv")
