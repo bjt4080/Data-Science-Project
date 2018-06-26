@@ -20,159 +20,170 @@ For numerical variables, such as Year Built, referring to what year the house wa
 ## EDA (EXPLATORY DATA ANALYSIS)
 Looking at the data
 
-> summary(df)
-       Id           MSSubClass     MSZoning          LotFrontage        LotArea      
- Min.   :   1.0   20     :1079   Length:2919        Min.   : 21.00   Min.   :  1300  
- 1st Qu.: 730.5   60     : 575   Class :character   1st Qu.: 60.00   1st Qu.:  7478  
- Median :1460.0   50     : 287   Mode  :character   Median : 68.00   Median :  9453  
- Mean   :1460.0   120    : 182                      Mean   : 69.09   Mean   : 10168  
- 3rd Qu.:2189.5   30     : 139                      3rd Qu.: 78.00   3rd Qu.: 11570  
- Max.   :2919.0   70     : 128                      Max.   :313.00   Max.   :215245  
-                  (Other): 529                                                       
-    Street             Alley             LotShape         LandContour       
- Length:2919        Length:2919        Length:2919        Length:2919       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-                                                                            
-  Utilities          LotConfig          LandSlope         Neighborhood      
- Length:2919        Length:2919        Length:2919        Length:2919       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-                                                                            
-  Condition1         Condition2          BldgType          HouseStyle       
- Length:2919        Length:2919        Length:2919        Length:2919       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-                                                                            
-  OverallQual      OverallCond      YearBuilt     YearRemodAdd   RoofStyle        
- Min.   : 1.000   Min.   :1.000   Min.   :1872   Min.   :1950   Length:2919       
- 1st Qu.: 5.000   1st Qu.:5.000   1st Qu.:1954   1st Qu.:1965   Class :character  
- Median : 6.000   Median :5.000   Median :1973   Median :1993   Mode  :character  
- Mean   : 6.089   Mean   :5.565   Mean   :1971   Mean   :1984                     
- 3rd Qu.: 7.000   3rd Qu.:6.000   3rd Qu.:2001   3rd Qu.:2004                     
- Max.   :10.000   Max.   :9.000   Max.   :2010   Max.   :2010                     
-                                                                                  
-   RoofMatl         Exterior1st        Exterior2nd         MasVnrType       
- Length:2919        Length:2919        Length:2919        Length:2919       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-                                                                            
-   MasVnrArea      ExterQual          ExterCond          Foundation       
- Min.   :   0.0   Length:2919        Length:2919        Length:2919       
- 1st Qu.:   0.0   Class :character   Class :character   Class :character  
- Median :   0.0   Mode  :character   Mode  :character   Mode  :character  
- Mean   : 101.4                                                           
- 3rd Qu.: 163.5                                                           
- Max.   :1600.0                                                           
-                                                                          
-   BsmtQual           BsmtCond         BsmtExposure       BsmtFinType1      
- Length:2919        Length:2919        Length:2919        Length:2919       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-                                                                            
-   BsmtFinSF1     BsmtFinType2         BsmtFinSF2       BsmtUnfSF        
- Min.   :   0.0   Length:2919        Min.   :   0.00   Length:2919       
- 1st Qu.:   0.0   Class :character   1st Qu.:   0.00   Class :character  
- Median : 368.0   Mode  :character   Median :   0.00   Mode  :character  
- Mean   : 441.3                      Mean   :  49.57                     
- 3rd Qu.: 733.0                      3rd Qu.:   0.00                     
- Max.   :5644.0                      Max.   :1526.00                     
-                                                                         
- TotalBsmtSF          Heating           HeatingQC          CentralAir       
- Length:2919        Length:2919        Length:2919        Length:2919       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-                                                                            
-  Electrical           1stFlrSF       2ndFlrSF       LowQualFinSF        GrLivArea   
- Length:2919        Min.   : 334   Min.   :   0.0   Min.   :   0.000   Min.   : 334  
- Class :character   1st Qu.: 876   1st Qu.:   0.0   1st Qu.:   0.000   1st Qu.:1126  
- Mode  :character   Median :1082   Median :   0.0   Median :   0.000   Median :1444  
-                    Mean   :1160   Mean   : 336.5   Mean   :   4.694   Mean   :1501  
-                    3rd Qu.:1388   3rd Qu.: 704.0   3rd Qu.:   0.000   3rd Qu.:1744  
-                    Max.   :5095   Max.   :2065.0   Max.   :1064.000   Max.   :5642  
-                                                                                     
-  BsmtFullBath     BsmtHalfBath        FullBath        HalfBath       BedroomAbvGr 
- Min.   :0.0000   Min.   :0.00000   Min.   :0.000   Min.   :0.0000   Min.   :0.00  
- 1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:1.000   1st Qu.:0.0000   1st Qu.:2.00  
- Median :0.0000   Median :0.00000   Median :2.000   Median :0.0000   Median :3.00  
- Mean   :0.4296   Mean   :0.06132   Mean   :1.568   Mean   :0.3803   Mean   :2.86  
- 3rd Qu.:1.0000   3rd Qu.:0.00000   3rd Qu.:2.000   3rd Qu.:1.0000   3rd Qu.:3.00  
- Max.   :3.0000   Max.   :2.00000   Max.   :4.000   Max.   :2.0000   Max.   :8.00  
-                                                                                   
-  KitchenAbvGr   KitchenQual         TotRmsAbvGrd     Functional          Fireplaces    
- Min.   :0.000   Length:2919        Min.   : 2.000   Length:2919        Min.   :0.0000  
- 1st Qu.:1.000   Class :character   1st Qu.: 5.000   Class :character   1st Qu.:0.0000  
- Median :1.000   Mode  :character   Median : 6.000   Mode  :character   Median :1.0000  
- Mean   :1.045                      Mean   : 6.452                      Mean   :0.5971  
- 3rd Qu.:1.000                      3rd Qu.: 7.000                      3rd Qu.:1.0000  
- Max.   :3.000                      Max.   :15.000                      Max.   :4.0000  
-                                                                                        
- FireplaceQu         GarageType         GarageYrBlt   GarageFinish         GarageCars   
- Length:2919        Length:2919        Min.   :1895   Length:2919        Min.   :0.000  
- Class :character   Class :character   1st Qu.:1962   Class :character   1st Qu.:1.000  
- Mode  :character   Mode  :character   Median :1979   Mode  :character   Median :2.000  
-                                       Mean   :1978                      Mean   :1.767  
-                                       3rd Qu.:2001                      3rd Qu.:2.000  
-                                       Max.   :2207                      Max.   :5.000  
-                                                                                        
-   GarageArea      GarageQual         GarageCond         PavedDrive       
- Min.   :   0.0   Length:2919        Length:2919        Length:2919       
- 1st Qu.: 320.0   Class :character   Class :character   Class :character  
- Median : 480.0   Mode  :character   Mode  :character   Mode  :character  
- Mean   : 472.9                                                           
- 3rd Qu.: 576.0                                                           
- Max.   :1488.0                                                           
-                                                                          
-   WoodDeckSF       OpenPorchSF     EnclosedPorch      3SsnPorch        ScreenPorch    
- Min.   :   0.00   Min.   :  0.00   Min.   :   0.0   Min.   :  0.000   Min.   :  0.00  
- 1st Qu.:   0.00   1st Qu.:  0.00   1st Qu.:   0.0   1st Qu.:  0.000   1st Qu.:  0.00  
- Median :   0.00   Median : 26.00   Median :   0.0   Median :  0.000   Median :  0.00  
- Mean   :  93.71   Mean   : 47.49   Mean   :  23.1   Mean   :  2.602   Mean   : 16.06  
- 3rd Qu.: 168.00   3rd Qu.: 70.00   3rd Qu.:   0.0   3rd Qu.:  0.000   3rd Qu.:  0.00  
- Max.   :1424.00   Max.   :742.00   Max.   :1012.0   Max.   :508.000   Max.   :576.00  
-                                                                                       
-    PoolArea          PoolQC             Fence           MiscFeature       
- Min.   :  0.000   Length:2919        Length:2919        Length:2919       
- 1st Qu.:  0.000   Class :character   Class :character   Class :character  
- Median :  0.000   Mode  :character   Mode  :character   Mode  :character  
- Mean   :  2.252                                                           
- 3rd Qu.:  0.000                                                           
- Max.   :800.000                                                           
-                                                                           
-    MiscVal             MoSold     YrSold      SaleType         SaleCondition     
- Min.   :    0.00   6      :503   2006:619   Length:2919        Length:2919       
- 1st Qu.:    0.00   7      :446   2007:692   Class :character   Class :character  
- Median :    0.00   5      :394   2008:622   Mode  :character   Mode  :character  
- Mean   :   50.83   4      :279   2009:647                                        
- 3rd Qu.:    0.00   8      :233   2010:339                                        
- Max.   :17000.00   3      :232                                                   
-                    (Other):832                                                   
-   SalePrice     
- Min.   :     0  
- 1st Qu.:     0  
- Median : 34900  
- Mean   : 90492  
- 3rd Qu.:163000  
- Max.   :755000 
 
+      Id           MSSubClass     MSZoning          LotFrontage    
+ Min.   :   1.0   20     :1079   Length:2919        Min.   : 21.00  
+ 1st Qu.: 730.5   60     : 575   Class :character   1st Qu.: 60.00  
+ Median :1460.0   50     : 287   Mode  :character   Median : 68.00  
+ Mean   :1460.0   120    : 182                      Mean   : 69.09  
+ 3rd Qu.:2189.5   30     : 139                      3rd Qu.: 78.00  
+ Max.   :2919.0   70     : 128                      Max.   :313.00  
+                  (Other): 529                                      
+    LotArea          Street             Alley             LotShape        
+ Min.   :  1300   Length:2919        Length:2919        Length:2919       
+ 1st Qu.:  7478   Class :character   Class :character   Class :character  
+ Median :  9453   Mode  :character   Mode  :character   Mode  :character  
+ Mean   : 10168                                                           
+ 3rd Qu.: 11570                                                           
+ Max.   :215245                                                           
+                                                                          
+ LandContour         Utilities          LotConfig          LandSlope        
+ Length:2919        Length:2919        Length:2919        Length:2919       
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+ Neighborhood        Condition1         Condition2          BldgType        
+ Length:2919        Length:2919        Length:2919        Length:2919       
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                                                                  
+  HouseStyle         OverallQual      OverallCond      YearBuilt   
+ Length:2919        Min.   : 1.000   Min.   :1.000   Min.   :1872  
+ Class :character   1st Qu.: 5.000   1st Qu.:5.000   1st Qu.:1954  
+ Mode  :character   Median : 6.000   Median :5.000   Median :1973  
+                    Mean   : 6.089   Mean   :5.565   Mean   :1971  
+                    3rd Qu.: 7.000   3rd Qu.:6.000   3rd Qu.:2001  
+                    Max.   :10.000   Max.   :9.000   Max.   :2010  
+                                                                   
+  YearRemodAdd   RoofStyle           RoofMatl         Exterior1st       
+ Min.   :1950   Length:2919        Length:2919        Length:2919       
+ 1st Qu.:1965   Class :character   Class :character   Class :character  
+ Median :1993   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :1984                                                           
+ 3rd Qu.:2004                                                           
+ Max.   :2010                                                           
+                                                                        
+ Exterior2nd         MasVnrType          MasVnrArea      ExterQual        
+ Length:2919        Length:2919        Min.   :   0.0   Length:2919       
+ Class :character   Class :character   1st Qu.:   0.0   Class :character  
+ Mode  :character   Mode  :character   Median :   0.0   Mode  :character  
+                                       Mean   : 101.4                     
+                                       3rd Qu.: 163.5                     
+                                       Max.   :1600.0                     
+                                                                          
+  ExterCond          Foundation          BsmtQual           BsmtCond        
+ Length:2919        Length:2919        Length:2919        Length:2919       
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+ BsmtExposure       BsmtFinType1         BsmtFinSF1     BsmtFinType2      
+ Length:2919        Length:2919        Min.   :   0.0   Length:2919       
+ Class :character   Class :character   1st Qu.:   0.0   Class :character  
+ Mode  :character   Mode  :character   Median : 368.0   Mode  :character  
+                                       Mean   : 441.3                     
+                                       3rd Qu.: 733.0                     
+                                       Max.   :5644.0                     
+                                                                          
+   BsmtFinSF2       BsmtUnfSF         TotalBsmtSF          Heating         
+ Min.   :   0.00   Length:2919        Length:2919        Length:2919       
+ 1st Qu.:   0.00   Class :character   Class :character   Class :character  
+ Median :   0.00   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :  49.57                                                           
+ 3rd Qu.:   0.00                                                           
+ Max.   :1526.00                                                           
+                                                                           
+  HeatingQC          CentralAir         Electrical           1stFlrSF   
+ Length:2919        Length:2919        Length:2919        Min.   : 334  
+ Class :character   Class :character   Class :character   1st Qu.: 876  
+ Mode  :character   Mode  :character   Mode  :character   Median :1082  
+                                                          Mean   :1160  
+                                                          3rd Qu.:1388  
+                                                          Max.   :5095  
+                                                                        
+    2ndFlrSF       LowQualFinSF        GrLivArea     BsmtFullBath   
+ Min.   :   0.0   Min.   :   0.000   Min.   : 334   Min.   :0.0000  
+ 1st Qu.:   0.0   1st Qu.:   0.000   1st Qu.:1126   1st Qu.:0.0000  
+ Median :   0.0   Median :   0.000   Median :1444   Median :0.0000  
+ Mean   : 336.5   Mean   :   4.694   Mean   :1501   Mean   :0.4296  
+ 3rd Qu.: 704.0   3rd Qu.:   0.000   3rd Qu.:1744   3rd Qu.:1.0000  
+ Max.   :2065.0   Max.   :1064.000   Max.   :5642   Max.   :3.0000  
+                                                                    
+  BsmtHalfBath        FullBath        HalfBath       BedroomAbvGr 
+ Min.   :0.00000   Min.   :0.000   Min.   :0.0000   Min.   :0.00  
+ 1st Qu.:0.00000   1st Qu.:1.000   1st Qu.:0.0000   1st Qu.:2.00  
+ Median :0.00000   Median :2.000   Median :0.0000   Median :3.00  
+ Mean   :0.06132   Mean   :1.568   Mean   :0.3803   Mean   :2.86  
+ 3rd Qu.:0.00000   3rd Qu.:2.000   3rd Qu.:1.0000   3rd Qu.:3.00  
+ Max.   :2.00000   Max.   :4.000   Max.   :2.0000   Max.   :8.00  
+                                                                  
+  KitchenAbvGr   KitchenQual         TotRmsAbvGrd     Functional       
+ Min.   :0.000   Length:2919        Min.   : 2.000   Length:2919       
+ 1st Qu.:1.000   Class :character   1st Qu.: 5.000   Class :character  
+ Median :1.000   Mode  :character   Median : 6.000   Mode  :character  
+ Mean   :1.045                      Mean   : 6.452                     
+ 3rd Qu.:1.000                      3rd Qu.: 7.000                     
+ Max.   :3.000                      Max.   :15.000                     
+                                                                       
+   Fireplaces     FireplaceQu         GarageType         GarageYrBlt  
+ Min.   :0.0000   Length:2919        Length:2919        Min.   :1895  
+ 1st Qu.:0.0000   Class :character   Class :character   1st Qu.:1962  
+ Median :1.0000   Mode  :character   Mode  :character   Median :1979  
+ Mean   :0.5971                                         Mean   :1978  
+ 3rd Qu.:1.0000                                         3rd Qu.:2001  
+ Max.   :4.0000                                         Max.   :2207  
+                                                                      
+ GarageFinish         GarageCars      GarageArea      GarageQual       
+ Length:2919        Min.   :0.000   Min.   :   0.0   Length:2919       
+ Class :character   1st Qu.:1.000   1st Qu.: 320.0   Class :character  
+ Mode  :character   Median :2.000   Median : 480.0   Mode  :character  
+                    Mean   :1.767   Mean   : 472.9                     
+                    3rd Qu.:2.000   3rd Qu.: 576.0                     
+                    Max.   :5.000   Max.   :1488.0                     
+                                                                       
+  GarageCond         PavedDrive          WoodDeckSF       OpenPorchSF    
+ Length:2919        Length:2919        Min.   :   0.00   Min.   :  0.00  
+ Class :character   Class :character   1st Qu.:   0.00   1st Qu.:  0.00  
+ Mode  :character   Mode  :character   Median :   0.00   Median : 26.00  
+                                       Mean   :  93.71   Mean   : 47.49  
+                                       3rd Qu.: 168.00   3rd Qu.: 70.00  
+                                       Max.   :1424.00   Max.   :742.00  
+                                                                         
+ EnclosedPorch      3SsnPorch        ScreenPorch        PoolArea      
+ Min.   :   0.0   Min.   :  0.000   Min.   :  0.00   Min.   :  0.000  
+ 1st Qu.:   0.0   1st Qu.:  0.000   1st Qu.:  0.00   1st Qu.:  0.000  
+ Median :   0.0   Median :  0.000   Median :  0.00   Median :  0.000  
+ Mean   :  23.1   Mean   :  2.602   Mean   : 16.06   Mean   :  2.252  
+ 3rd Qu.:   0.0   3rd Qu.:  0.000   3rd Qu.:  0.00   3rd Qu.:  0.000  
+ Max.   :1012.0   Max.   :508.000   Max.   :576.00   Max.   :800.000  
+                                                                      
+    PoolQC             Fence           MiscFeature           MiscVal        
+ Length:2919        Length:2919        Length:2919        Min.   :    0.00  
+ Class :character   Class :character   Class :character   1st Qu.:    0.00  
+ Mode  :character   Mode  :character   Mode  :character   Median :    0.00  
+                                                          Mean   :   50.83  
+                                                          3rd Qu.:    0.00  
+                                                          Max.   :17000.00  
+                                                                            
+     MoSold     YrSold      SaleType         SaleCondition        SalePrice     
+ 6      :503   2006:619   Length:2919        Length:2919        Min.   :     0  
+ 7      :446   2007:692   Class :character   Class :character   1st Qu.:     0  
+ 5      :394   2008:622   Mode  :character   Mode  :character   Median : 34900  
+ 4      :279   2009:647                                         Mean   : 90492  
+ 8      :233   2010:339                                         3rd Qu.:163000  
+ 3      :232                                                    Max.   :755000  
+ (Other):832                                                                    
+                                                                            
+ 
+                                                                            
+                                                                            
 Pool QC
   Ex   Fa   Gd None 
    4    2    4 2909 
