@@ -423,8 +423,8 @@ My concern though is the low mean and median that this model is popping out. Thi
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
       0       0   50982   90538  163656  642897 
  ```
- Here is the graph for the 2nd RandomForest. 
- ![random forest 2](https://user-images.githubusercontent.com/25735405/41887820-4071b9ac-78b7-11e8-9a49-fb4154df9bc8.png)
+ Here is the graph for the 2nd RandomForest
+![random forest 2](https://user-images.githubusercontent.com/25735405/41887820-4071b9ac-78b7-11e8-9a49-fb4154df9bc8.png)
  
  
  
