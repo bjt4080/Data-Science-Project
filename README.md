@@ -188,11 +188,6 @@ str(df)
 #Scatterplot
 ![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
 
-
-
-#Boxplot
-![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
-
 ![rplot01](https://user-images.githubusercontent.com/25735405/40893807-73736cb6-6759-11e8-9298-aa7d95b9fb64.png)
 
 Price Vs. Overall Condition (1-10 scale, 10 being best condition)
@@ -223,6 +218,24 @@ C (all)      FV      RH      RL      RM
 
 
 Now that we have our data cleaned up, let's start putting the data into some models. THe first model I will use is a very simple linear model using only month and year sold, square footage, number of bedrooms and lot size. I wanted to input some data values that I assumed wouldn't be a strong indicator, but would still yield some basic results that we can compare against later. 
+
+![lineargraphs](https://user-images.githubusercontent.com/25735405/41942141-37bd0518-7953-11e8-8575-752a9bcdbe6b.png)
+
+Residuals vs. Fitted Plots
+	This plot shows error Residuals vs fitted values.
+	The dotted line at y=0 indicates our fit line.
+	Any point on fit line obviously has zero residual. Points above have positive residuals and points below have negative residuals.
+	The red line is the the smoothed high order polynomial curve to give us an idea of pattern of residual movement.
+	In our case we can see that our residuals have curved pattern. This could mean that we may get a better model is we try a  model with a quadratic term included. We will explore this point further by actually trying this to see if it helps
+Normal Q-Q Plot
+	The Normal Q-Q plot is used to check if our residuals follow Normal distribution or not.
+	The residuals are normally distributed if the points follow the dotted line closely
+	My graph indicates that most points are within the normal distribution, so my model appears to pass the test of normality
+
+
+
+
+
 
 ```{r}
 #This is a very basic linear model using only lot's square footage, bedrooms, and month 
