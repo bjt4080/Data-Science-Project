@@ -274,6 +274,9 @@ data.frame':	1459 obs. of  2 variables:
 After cleaning the data I ran a couple different models. The first was a very simple linear regression model that used 
 
 
+```{r}
+summary(linearModel)
+
 Call:
 lm(formula = SalePrice ~ YrSold + MoSold + LotArea + BedroomAbvGr, 
     data = train)
@@ -295,6 +298,8 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 75870 on 1455 degrees of freedom
 Multiple R-squared:  0.09035,	Adjusted R-squared:  0.08785 
 F-statistic: 36.13 on 4 and 1455 DF,  p-value: < 0.00000000000000022
+```
+
 
 
 The result I focused on here was R-Squared. R – squared is a statistical measure of how close the data are to the fitted regression line. Typically, the higher the R-squared, the better the model fits your data. So in this case my R-squared value was: 
