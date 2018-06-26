@@ -306,6 +306,108 @@ The result I focused on here was R-Squared. R – squared is a statistical measu
 The Adjusted R-Squared of . is the data I’m concered with. It should be noted that just because an R-squared value is not high,that does not mean that the model is bad. You can also have a high R-squared value, and the model does not fit the data 
 
 
+The 2nd time I ran the linear model was with all the data and I was able to get a better R-squared result: 
+'''
+
+Call:
+lm(formula = SalePrice ~ ., data = clean)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-217712  -36433   -3078   30921  414132 
+
+Coefficients: (2 not defined because of singularities)
+                   Estimate    Std. Error t value             Pr(>|t|)    
+(Intercept)   29935067.0434  1791320.2637  16.711 < 0.0000000000000002 ***
+V1                 -98.2790        1.3526 -72.658 < 0.0000000000000002 ***
+Id                       NA            NA      NA                   NA    
+MSSubClass         -99.1509       55.9989  -1.771             0.076737 .  
+MSZoning          -638.9891     1998.5190  -0.320             0.749196    
+LotFrontage        -58.2773       69.2308  -0.842             0.399981    
+LotArea              0.6477        0.1718   3.771             0.000166 ***
+Street            1802.1608    18122.1220   0.099             0.920792    
+Alley             2280.7768     4755.3433   0.480             0.631532    
+LotShape          1396.0191      864.9681   1.614             0.106648    
+LandContour       3533.0687     1739.6144   2.031             0.042353 *  
+Utilities        -2892.3579    34933.2501  -0.083             0.934019    
+LotConfig           42.7621      714.5343   0.060             0.952282    
+LandSlope         1604.5019     5262.7967   0.305             0.760483    
+Neighborhood       -98.4338      205.4008  -0.479             0.631813    
+Condition1        -964.8769     1302.5380  -0.741             0.458896    
+Condition2       -9214.4203     5311.1434  -1.735             0.082863 .  
+BldgType           880.9432     1904.6308   0.463             0.643739    
+HouseStyle        -396.1718      823.8014  -0.481             0.630620    
+OverallQual       2732.3806     1491.6811   1.832             0.067094 .  
+OverallCond       4906.7340     1331.6985   3.685             0.000233 ***
+YearBuilt          161.0116       99.3473   1.621             0.105194    
+YearRemodAdd       -57.6466       86.7031  -0.665             0.506185    
+RoofStyle         2387.5280     1489.5507   1.603             0.109079    
+RoofMatl          4821.2942     2117.9832   2.276             0.022899 *  
+Exterior1st      -1453.9450      677.0457  -2.147             0.031839 *  
+Exterior2nd        487.1283      614.6554   0.793             0.428122    
+MasVnrType        8994.9221     2067.4849   4.351          0.000014052 ***
+MasVnrArea          12.1114        8.0248   1.509             0.131346    
+ExterQual        -6186.5877     2545.5040  -2.430             0.015144 *  
+ExterCond         2320.0081     1548.4240   1.498             0.134166    
+Foundation        1156.4107     2092.5292   0.553             0.580555    
+BsmtQual           321.2134     1843.1842   0.174             0.861665    
+BsmtCond           852.8989     1710.5098   0.499             0.618084    
+BsmtExposure     -4210.3795     1191.0151  -3.535             0.000414 ***
+BsmtFinType1      -226.2377      670.3411  -0.337             0.735768    
+BsmtFinSF1           2.5333        4.2992   0.589             0.555741    
+BsmtFinType2      2623.7115     1675.0834   1.566             0.117386    
+BsmtFinSF2           8.7123       10.1631   0.857             0.391380    
+BsmtUnfSF            1.9076        3.6458   0.523             0.600851    
+TotalBsmtSF         -0.1594        3.6423  -0.044             0.965103    
+Heating           -410.3491     4799.4804  -0.085             0.931871    
+HeatingQC         -188.1669      794.4694  -0.237             0.812793    
+CentralAir       -1862.2153     5594.7107  -0.333             0.739270    
+Electrical        2139.9780     1177.1115   1.818             0.069171 .  
+X1stFlrSF           26.6512        6.4778   4.114          0.000039947 ***
+X2ndFlrSF           32.8083        6.2974   5.210          0.000000203 ***
+LowQualFinSF       -24.4420       24.8835  -0.982             0.326058    
+GrLivArea                NA            NA      NA                   NA    
+BsmtFullBath      2738.4336     3097.7752   0.884             0.376771    
+BsmtHalfBath     -2696.5678     4859.3548  -0.555             0.578991    
+FullBath           979.0693     3392.0237   0.289             0.772879    
+HalfBath         -4553.4320     3256.5044  -1.398             0.162145    
+BedroomAbvGr     -6859.6278     2107.6023  -3.255             0.001148 ** 
+KitchenAbvGr    -22258.7652     6614.1761  -3.365             0.000775 ***
+KitchenQual      -3644.3353     1919.1276  -1.899             0.057672 .  
+TotRmsAbvGrd      7313.1565     1496.5119   4.887          0.000001082 ***
+Functional        2173.0129     1271.3332   1.709             0.087516 .  
+Fireplaces        -809.0308     2153.2498  -0.376             0.707149    
+FireplaceQu        612.7479     1028.2691   0.596             0.551288    
+GarageType        -595.1318      809.1270  -0.736             0.462082    
+GarageYrBlt        -35.0064       85.4057  -0.410             0.681922    
+GarageFinish      -946.2367     1176.5642  -0.804             0.421327    
+GarageCars        2547.3987     3549.2808   0.718             0.472987    
+GarageArea           5.2568       12.4564   0.422             0.673043    
+GarageQual       -1387.2355     2016.6005  -0.688             0.491567    
+GarageCond        1221.3084     2473.4788   0.494             0.621513    
+PavedDrive       -1162.9370     2597.5814  -0.448             0.654404    
+WoodDeckSF           5.5216        9.7444   0.567             0.570997    
+OpenPorchSF        -21.0658       18.2034  -1.157             0.247268    
+EnclosedPorch       -3.9855       18.9468  -0.210             0.833406    
+X3SsnPorch          21.0089       43.7402   0.480             0.631043    
+ScreenPorch         26.9642       20.3790   1.323             0.185897    
+PoolArea            43.1380       43.7491   0.986             0.324201    
+PoolQC          -11467.9614    12082.7686  -0.949             0.342642    
+Fence             -183.7679     1079.9389  -0.170             0.864892    
+MiscFeature      -3026.7022     3140.2472  -0.964             0.335207    
+MiscVal             -5.5167        2.0066  -2.749             0.006011 ** 
+MoSold             637.8441      411.4522   1.550             0.121199    
+YrSold          -14891.2260      884.3017 -16.840 < 0.0000000000000002 ***
+SaleType          -851.6868      720.6329  -1.182             0.237360    
+SaleCondition     1422.3036     1089.7046   1.305             0.191924    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 58590 on 2839 degrees of freedom
+Multiple R-squared:  0.7055,	Adjusted R-squared:  0.6973 
+F-statistic: 86.11 on 79 and 2839 DF,  p-value: < 0.00000000000000022
+'''
+
 
 
 ## CONCLUSIONS
