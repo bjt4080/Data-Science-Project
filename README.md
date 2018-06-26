@@ -221,16 +221,38 @@ Now that we have our data cleaned up, let's start putting the data into some mod
 
 ![lineargraphs](https://user-images.githubusercontent.com/25735405/41942141-37bd0518-7953-11e8-8575-752a9bcdbe6b.png)
 
+
+#Linear Graphs
 Residuals vs. Fitted Plots
-	This plot shows error Residuals vs fitted values.
-	The dotted line at y=0 indicates our fit line.
-	Any point on fit line obviously has zero residual. Points above have positive residuals and points below have negative residuals.
-	The red line is the the smoothed high order polynomial curve to give us an idea of pattern of residual movement.
-	In our case we can see that our residuals have curved pattern. This could mean that we may get a better model is we try a  model with a quadratic term included. We will explore this point further by actually trying this to see if it helps
+This plot shows error Residuals vs fitted values.
+The dotted line at y=0 indicates our fit line.
+Any point on fit line obviously has zero residual. Points above have positive residuals and points below have negative residuals.
+The red line is the the smoothed high order polynomial curve to give us an idea of pattern of residual movement.
+In our case we can see that our residuals have curved pattern. This could mean that we may get a better model is we try a  model with a quadratic term included. We will explore this point further by actually trying this to see if it helps
+
 Normal Q-Q Plot
-	The Normal Q-Q plot is used to check if our residuals follow Normal distribution or not.
-	The residuals are normally distributed if the points follow the dotted line closely
-	My graph indicates that most points are within the normal distribution, so my model appears to pass the test of normality
+
+The Normal Q-Q plot is used to check if our residuals follow Normal distribution or not.
+The residuals are normally distributed if the points follow the dotted line closely
+My graph indicates that most points are within the normal distribution, so my model appears to pass the test of normality
+
+
+Scale – Location Plot
+
+Scale location plot indicates  spread of points across predicted values range.
+One of the assumptions for Regression is Homoscedasticity meaning variance should be reasonably equal across the predictor range.
+
+As residuals spread wider from each other the red spread line goes up. In my graph, it appears that around the 100,000 mark, it looks like the residuals are getting closer to each other therefore causing the red spread line to go down
+A horizontal red line is ideal and would indicate that residuals have uniform variance across the range.
+
+Residuals vs Leverage Plot
+
+This plot took was a little harder to grasp when I first looked into what it’s telling us. 
+Influence : The Influence of an observation can be thought of in terms of how much the predicted scores would change  if the observation is excluded. Cook’s Distance is a pretty good measure of influence of an observation.
+Leverage : The leverage of an observation is based on how much the observation’s value on the predictor variable differs from the mean of the predictor variable. The more the leverage of an observation , the greater potential that point has in terms of influence.
+
+What we are concerned with here is that if any points land outside the two dotted lines, meaning those points has very high leverage or potential for influencing our model. So typically if I did have points in that range, I would most likely want to exclude those points.  My model have all points within the desired range
+
 
 
 
