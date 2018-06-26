@@ -220,9 +220,19 @@ Looking at Sale Price V. Year Built V. Overall Quality
 
 This plot show a the relationship between the SalePrice, YearBuilt and OverallQuality. It seems that houses from recent years have better grade of quality.
 
-<<<<<<< HEAD
-#Plotting with Outliers
-=======
+
+One thing that I did have trouble with was converting the data from a categorical value to a numerical. When trying to run my random forest model, I kept getting errors that stated that my data could not be read. 
+
+I then had to use the following functions to get it work correctly. This took me awhile to figure out, but then through the help of the professor and used this code to process it: 
+```{r}
+#First we have to make it so the the columns in R don't start with numbers, so I'll change
+names(clean) <- make.names(names(clean))
+#Then we have to change the # of categorial bc RF cannot hanlde over 53
+clean <- clean %>% mutate_if(is.character,as.factor)
+```
+
+
+
 Plotting with Outliers 
 >>>>>>> cae0f15bab73f1ff22388e80a7ce9fa9a04296da
 ![rplot4](https://user-images.githubusercontent.com/25735405/41139323-b83e942a-6a9b-11e8-81a4-3f285c08a510.png)
