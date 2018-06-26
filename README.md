@@ -530,56 +530,34 @@ One thing that I did have trouble with was converting the data from a categorica
 
 I then had to use the following functions to get it work correctly. This took me awhile to figure out, but then through the help of the professor and used this code to process it.
 
-My first random forest model I used to build very simple variables of Sale Price, then LotArea, YearBuilt, Condition1, # of bathrooms, bedrooms above ground, and total rooms above ground. As I noted, I was running into problems when dealing with the categorical variables, so I ran this one without any of those. 
 ```{r}
 #First we have to make it so the the columns in R don't start with numbers, so I'll change
 names(clean) <- make.names(names(clean))
 #Then we have to change the # of categorial bc RF cannot hanlde over 53
 clean <- clean %>% mutate_if(is.character,as.factor)
 ```
+ 
+So I was able to have what I think was a little bit more success in my 2nd try with the random forest. I had a couple factors in my dataset that had over 53 levels, so I changed those values from factors with over 53 levels to integers and ran the model. 
 
-```
-> fit <- rpart(SalePrice ~ LotArea + YearBuilt + Condition1 + FullBath + BedroomAbvGr + TotRmsAbvGrd
-+              ,data = clean)
-> plot(fit, uniform = TRUE)
-> text(fit, cex=.6)
-> model <- rpart(SalePrice ~., data = clean, method = "anova")
-> #Changing Characters into Factors as it Random Forest won't work with characters
-> clean <- clean %>% mutate_if(is.character,as.factor)
-> #Random Forest
-> #First we have to make it so the the columns in R don't start with numbers, so I'll change
-> names(clean) <- make.names(names(clean))
-> #Then we have to change the # of categorial bc RF cannot hanlde over 53
-> clean <- clean %>% mutate_if(is.character,as.factor)
-> #This didn't work, so I'll try to change them into integers
-> clean <- clean %>% mutate_if(is.factor,as.integer)
-> rf1 <- randomForest(SalePrice~.,data=clean, ntree=1000,proximity=TRUE)
+
+ 
+ ```
+ > rf1 <- randomForest(SalePrice~.,data=clean, ntree=1000,proximity=TRUE)
 > varImpPlot(rf1)
 > predict_rf<-predict(rf1, clean) #Prediction
 > head(predict_rf)
        1        2        3        4        5        6 
-208209.9 176575.1 221001.4 159083.8 267835.5 148094.2 
+208014.0 175139.4 221352.1 158057.1 12000000000000 147914.5 
 > summary(predict_rf)
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-      0       0   51084   90535  163760  651943
- ```
- 
-So I was able to have what I think was a little bit more success in my 2nd try with the random forest. I had a couple factors in my dataset that had over 53 levels, so I changed those values from factors with over 53 levels to integers and ran the model. 
-
-My concern though is the low mean and median that this model is popping out. This doesn't seem consistent with what the rest of the data should be. 
+      0       0   50532   90522  163504  642316 
+> postResample(predict_rf, clean$SalePrice)
+        RMSE     Rsquared          MAE 
+8389.5080258    0.9941019 3464.3994625 
  
  ```
- > rf2 <- randomForest(SalePrice ~., data = mydata2, method = "anova")
-> varImpPlot(rf2)
-> prediction<-predict(rf2, clean) #Prediction
-> head(prediction)
-       1        2        3        4        5        6 
-209200.7 175361.8 220819.7 157523.4 266305.5 147388.0 
-> summary(prediction)
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-      0       0   50982   90538  163656  642897 
- ```
- Here is the graph for the 2nd RandomForest
+ I used the caret package in R to test the models using the postResample function. As we can see, this R-squared for this model of 0.9941019 is much better than the Linear model or the Rpart model. 
+ Here is the graph for the RandomForest
 ![random forest 2](https://user-images.githubusercontent.com/25735405/41887820-4071b9ac-78b7-11e8-9a49-fb4154df9bc8.png)
  
  
