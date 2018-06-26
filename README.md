@@ -558,13 +558,10 @@ So I was able to have what I think was a little bit more success in my 2nd try w
  ```
  I used the caret package in R to test the models using the postResample function. As we can see, this R-squared for this model of 0.9941019 is much better than the Linear model or the Rpart model. 
  Here is the graph for the RandomForest
-![random forest 2](https://user-images.githubusercontent.com/25735405/41887820-4071b9ac-78b7-11e8-9a49-fb4154df9bc8.png)
- 
- 
- 
- 
 
-
+![rf model](https://user-images.githubusercontent.com/25735405/41929849-3c60e6f4-792e-11e8-869e-b4f8831365cb.png)
+ 
+ 
 
 ## CONCLUSIONS
 The biggest hurdle I had in this project was figuring out how to handle the missing data. This took the majority of my time to figure out how to first of all find what was missing, then repalce that data, and figure out what to replace that data with. 
