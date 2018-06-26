@@ -270,12 +270,34 @@ data.frame':	1459 obs. of  2 variables:
  $ SalePrice: num  169277 187758 183584 179317 150730 ...
 ```
 
-The result I focused on here was R-Squared. R – squared is a statistical measure of how close the data are to the fitted regression line. Typically, the higher the R-squared, the better the model fits your data. So in this case my R-squared value was 
-Residual standard error: 43390 on 708 degrees of freedom
-Multiple R-squared:  0.9597,	Adjusted R-squared:  0.834 
-F-statistic: 7.635 on 2210 and 708 DF,  p-value: < 0.00000000000000022 
+After cleaning the data I ran a couple different models. The first was a very simple linear regression model that used 
 
-The Adjusted R-Squared of .834 is the data I’m concered with. It should be noted that just because an R-squared value is not high,that does not mean that the model is bad. You can also have a high R-squared value, and the model does not fit the data 
+
+Call:
+lm(formula = SalePrice ~ YrSold + MoSold + LotArea + BedroomAbvGr, 
+    data = train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-258793  -48846  -17832   30415  542493 
+
+Coefficients:
+                 Estimate   Std. Error t value             Pr(>|t|)    
+(Intercept)  1917554.0845 3037799.2464   0.631                0.528    
+YrSold          -897.6770    1512.5335  -0.593                0.553    
+MoSold          1104.8926     743.2912   1.486                0.137    
+LotArea            1.9680       0.2005   9.817 < 0.0000000000000002 ***
+BedroomAbvGr   13275.8801    2456.2101   5.405         0.0000000756 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 75870 on 1455 degrees of freedom
+Multiple R-squared:  0.09035,	Adjusted R-squared:  0.08785 
+F-statistic: 36.13 on 4 and 1455 DF,  p-value: < 0.00000000000000022
+
+
+The result I focused on here was R-Squared. R – squared is a statistical measure of how close the data are to the fitted regression line. Typically, the higher the R-squared, the better the model fits your data. So in this case my R-squared value was: 
+The Adjusted R-Squared of . is the data I’m concered with. It should be noted that just because an R-squared value is not high,that does not mean that the model is bad. You can also have a high R-squared value, and the model does not fit the data 
 
 
 
