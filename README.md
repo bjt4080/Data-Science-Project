@@ -407,6 +407,28 @@ clean <- clean %>% mutate_if(is.character,as.factor)
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
       0       0   51084   90535  163760  651943
  ```
+ 
+So I was able to have what I think was a little bit more success in my 2nd try with the random forest. I had a couple factors in my dataset that had over 53 levels, so I changed those values from factors with over 53 levels to integers and ran the model. 
+
+My concern though is the low mean and median that this model is popping out. This doesn't seem consistent with what the rest of the data should be. 
+ 
+ ```
+ > rf2 <- randomForest(SalePrice ~., data = mydata2, method = "anova")
+> varImpPlot(rf2)
+> prediction<-predict(rf2, clean) #Prediction
+> head(prediction)
+       1        2        3        4        5        6 
+209200.7 175361.8 220819.7 157523.4 266305.5 147388.0 
+> summary(prediction)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0   50982   90538  163656  642897 
+ ```
+ Here is the graph for the 2nd RandomForest. 
+ 
+ 
+ 
+ 
+ 
 
 
 
