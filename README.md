@@ -206,19 +206,6 @@ Looking at Sale Price V. Year Built V. Overall Quality
 
 This plot show a the relationship between the SalePrice, YearBuilt and OverallQuality. It seems that houses from recent years have better grade of quality.
 
-
-One thing that I did have trouble with was converting the data from a categorical value to a numerical. When trying to run my random forest model, I kept getting errors that stated that my data could not be read. 
-
-I then had to use the following functions to get it work correctly. This took me awhile to figure out, but then through the help of the professor and used this code to process it: 
-```{r}
-#First we have to make it so the the columns in R don't start with numbers, so I'll change
-names(clean) <- make.names(names(clean))
-#Then we have to change the # of categorial bc RF cannot hanlde over 53
-clean <- clean %>% mutate_if(is.character,as.factor)
-```
-
-
-
 Looking at the data we have a ton of values that are missing data. I've decided to input the missing values into missing data points based on what would most make sense for my model. For instance, the variable for Lot Frontage has missing values. When I run a summary for this data, I get the following: 
 ```{r}
 summary(df$LotFrontage)
@@ -378,6 +365,46 @@ Residual standard error: 58590 on 2839 degrees of freedom
 Multiple R-squared:  0.7055,	Adjusted R-squared:  0.6973 
 F-statistic: 86.11 on 79 and 2839 DF,  p-value: < 0.00000000000000022
 ```
+
+
+
+
+##RANDOM FOREST
+One thing that I did have trouble with was converting the data from a categorical value to a numerical. When trying to run my random forest model, I kept getting errors that stated that my data could not be read. 
+
+I then had to use the following functions to get it work correctly. This took me awhile to figure out, but then through the help of the professor and used this code to process it: 
+```{r}
+#First we have to make it so the the columns in R don't start with numbers, so I'll change
+names(clean) <- make.names(names(clean))
+#Then we have to change the # of categorial bc RF cannot hanlde over 53
+clean <- clean %>% mutate_if(is.character,as.factor)
+```
+
+```
+> fit <- rpart(SalePrice ~ LotArea + YearBuilt + Condition1 + FullBath + BedroomAbvGr + TotRmsAbvGrd
++              ,data = clean)
+> plot(fit, uniform = TRUE)
+> text(fit, cex=.6)
+> model <- rpart(SalePrice ~., data = clean, method = "anova")
+> #Changing Characters into Factors as it Random Forest won't work with characters
+> clean <- clean %>% mutate_if(is.character,as.factor)
+> #Random Forest
+> #First we have to make it so the the columns in R don't start with numbers, so I'll change
+> names(clean) <- make.names(names(clean))
+> #Then we have to change the # of categorial bc RF cannot hanlde over 53
+> clean <- clean %>% mutate_if(is.character,as.factor)
+> #This didn't work, so I'll try to change them into integers
+> clean <- clean %>% mutate_if(is.factor,as.integer)
+> rf1 <- randomForest(SalePrice~.,data=clean, ntree=1000,proximity=TRUE)
+> varImpPlot(rf1)
+> predict_rf<-predict(rf1, clean) #Prediction
+> head(predict_rf)
+       1        2        3        4        5        6 
+208209.9 176575.1 221001.4 159083.8 267835.5 148094.2 
+> summary(predict_rf)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0   51084   90535  163760  651943
+ ```
 
 
 
