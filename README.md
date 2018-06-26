@@ -372,7 +372,9 @@ F-statistic: 86.11 on 79 and 2839 DF,  p-value: < 0.00000000000000022
 ##RANDOM FOREST
 One thing that I did have trouble with was converting the data from a categorical value to a numerical. When trying to run my random forest model, I kept getting errors that stated that my data could not be read. 
 
-I then had to use the following functions to get it work correctly. This took me awhile to figure out, but then through the help of the professor and used this code to process it: 
+I then had to use the following functions to get it work correctly. This took me awhile to figure out, but then through the help of the professor and used this code to process it.
+
+My first random forest model I used to build very simple variables of Sale Price, then LotArea, YearBuilt, Condition1, # of bathrooms, bedrooms above ground, and total rooms above ground. As I noted, I was running into problems when dealing with the categorical variables, so I ran this one without any of those. 
 ```{r}
 #First we have to make it so the the columns in R don't start with numbers, so I'll change
 names(clean) <- make.names(names(clean))
