@@ -20,6 +20,8 @@ For numerical variables, such as Year Built, referring to what year the house wa
 ## EDA (EXPLATORY DATA ANALYSIS)
 Looking at the data
 
+```
+str(df)
 
       Id           MSSubClass     MSZoning          LotFrontage    
  Min.   :   1.0   20     :1079   Length:2919        Min.   : 21.00  
@@ -179,8 +181,8 @@ Looking at the data
  4      :279   2009:647                                         Mean   : 90492  
  8      :233   2010:339                                         3rd Qu.:163000  
  3      :232                                                    Max.   :755000  
- (Other):832                                                                    
-                                                                            
+ (Other):832                                                                                                                                 
+ ```
  
                                                                             
                                                                             
