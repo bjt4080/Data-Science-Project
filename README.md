@@ -307,8 +307,8 @@ The Adjusted R-Squared of . is the data I’m concered with. It should be noted 
 
 
 The 2nd time I ran the linear model was with all the data and I was able to get a better R-squared result: 
-'''
 
+```
 Call:
 lm(formula = SalePrice ~ ., data = clean)
 
@@ -406,7 +406,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 58590 on 2839 degrees of freedom
 Multiple R-squared:  0.7055,	Adjusted R-squared:  0.6973 
 F-statistic: 86.11 on 79 and 2839 DF,  p-value: < 0.00000000000000022
-'''
+```
 
 
 
