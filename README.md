@@ -221,6 +221,9 @@ C (all)      FV      RH      RL      RM
      25     139      26    2269     460 
 ```
 
+
+Now that we have our data cleaned up, let's start putting the data into some models. THe first model I will use is a very simple linear model using only month and year sold, square footage, number of bedrooms and lot size. I wanted to input some data values that I assumed wouldn't be a strong indicator, but would still yield some basic results that we can compare against later. 
+
 ```{r}
 #This is a very basic linear model using only lot's square footage, bedrooms, and month 
 linearModel <- lm(SalePrice ~ YrSold + MoSold + LotArea + BedroomAbvGr, data=train)
@@ -232,7 +235,6 @@ data.frame':	1459 obs. of  2 variables:
  $ SalePrice: num  169277 187758 183584 179317 150730 ...
 ```
 
-After cleaning the data I ran a couple different models. The first was a very simple linear regression model that used nothing but sale price  
 
 
 ```{r}
@@ -276,10 +278,9 @@ Multiple R-squared:  0.09035,	Adjusted R-squared:  0.08785
 F-statistic: 36.13 on 4 and 1455 DF,  p-value: < 0.00000000000000022
 
 ```
-The result I focused on here was R-Squared. R – squared is a statistical measure of how close the data are to the fitted regression line. Typically, the higher the R-squared, the better the model fits your data. So in this case my R-squared value was: 
+The result I focused on here was R-Squared. R – squared is a statistical measure of how close the data are to the fitted regression line. Typically, the higher the R-squared, the better the model fits your data. 
 
-The Adjusted R-Squared of . is the data I’m concered with. It should be noted that just because an R-squared value is not high,that does not mean that the model is bad. You can also have a high R-squared value, and the model does not fit the data 
-
+The adjusted R-squared value for this simple linear regression is 0.08785 which of course shows that this is close to random, which means our model is not very good. Let’s put all the variables with our cleaned up data set, to where we input values for all the missing values and see what happens:  
 
 The 2nd time I ran the linear model was with all the data and I was able to get a better R-squared result: 
 
@@ -501,7 +502,27 @@ Multiple R-squared:  0.9597,	Adjusted R-squared:  0.834
 F-statistic: 7.635 on 2210 and 708 DF,  p-value: < 0.00000000000000022
 ```
 
+##RPART 
+```{r}
+model <- rpart(SalePrice ~.,data = clean, method = "anova")
+predict1 <- predict(model, clean)
+summary(predict1)
+library(caret)
+head(predict1)
+postResample(predict1, clean$SalePrice)
 
+Show in New WindowClear OutputExpand/Collapse Output
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0  134939   90492  134939  577382 
+       1        2        3        4        5        6 
+195586.9 195586.9 195586.9 134938.7 195586.9 134938.7
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0       0  134939   90492  134939  577382 
+    
+    RMSE    Rsquared         MAE 
+27861.88349     0.93153 14620.09323
+```
 
 
 ##RANDOM FOREST
