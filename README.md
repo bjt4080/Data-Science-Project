@@ -244,22 +244,31 @@ Train Data
 ![missingness train](https://user-images.githubusercontent.com/25735405/41495353-f5f3cb0c-70d9-11e8-9c38-4552d7b34a6c.png)\
 
 
-Looking at the data we have a ton of values that are missing data. I've decided to input the missing values into missing data points based on what would most make sense for my model. For instance, the variable for Garage Year Built has missing values. When I run a summary for this data, I get the following: 
-> summary(df$GarageYrBlt)
+Looking at the data we have a ton of values that are missing data. I've decided to input the missing values into missing data points based on what would most make sense for my model. For instance, the variable for Lot Frontage has missing values. When I run a summary for this data, I get the following: 
+```{r}
+summary(df$LotFrontage)
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   1900    1962    1979    1979    2001    2010 
-   
- In this case, it is probably best to use the median, I've decided to use the median of 1979 to use for all missing values for this partiuclar variable. 
+  21.00   60.00   68.00   69.09   78.00  313.00 
+```
+   In this case, it is probably best to use the median, I've decided to use the median of 69.09 to use for all missing values for this partiuclar variable since it is normally distributed 
  
  In another case, I've used just the most frequent feature. For example, the varibale of MSZoing, which refers to how a house is zoned (residential, commerical, etc). As we can see from the table, the vast majority of data is zoned as 'RL', so we will use this to input for the missing values. 
- > table(df$MSZoning)
+```{r}
+table(df$MSZoning)
 C (all)      FV      RH      RL      RM 
-     10      65      16    1151     218 
+     25     139      26    2269     460 
+```
 
-
-Let's take a look at the summary of those values:
-summary(PoolQC)
-
+```{r}
+#This is a very basic linear model using only lot's square footage, bedrooms, and month 
+linearModel <- lm(SalePrice ~ YrSold + MoSold + LotArea + BedroomAbvGr, data=train)
+linearPreds <- data.frame(Id = test$Id, SalePrice= predict(linearModel, test))
+str(linearPreds)
+head(linearPreds)
+data.frame':	1459 obs. of  2 variables:
+ $ Id       : int  1461 1462 1463 1464 1465 1466 1467 1468 1469 1470 ...
+ $ SalePrice: num  169277 187758 183584 179317 150730 ...
+```
 
 The result I focused on here was R-Squared. R – squared is a statistical measure of how close the data are to the fitted regression line. Typically, the higher the R-squared, the better the model fits your data. So in this case my R-squared value was 
 Residual standard error: 43390 on 708 degrees of freedom
