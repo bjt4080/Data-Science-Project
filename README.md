@@ -1,5 +1,6 @@
 # MSDS 692 DATA SCIENCE PRACTICUM 
-E
+Ben Turner
+Predicting Housing Prices in Ames, Iowa
 
 # Project Overview
 
