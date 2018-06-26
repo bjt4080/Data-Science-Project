@@ -184,16 +184,7 @@ str(df)
  3      :232                                                    Max.   :755000  
  (Other):832                                                                                                                                 
  ```
- 
-                                                                            
-                                                                            
-Pool QC
-  Ex   Fa   Gd None 
-   4    2    4 2909 
-[1] "Ex"   "Fa"   "Gd"   "None"
-
-
-
+                                                                        
 #Scatterplot
 ![](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
 
@@ -202,11 +193,6 @@ Pool QC
 #Boxplot
 ![Boxer](https://github.com/bjt4080/Data-Science-Project/blob/master/Boxplot.png)
 
-
-
- 
->>>>>>> 7620703f92f72e3fccf45e82e822ac40a4f568ec
-#Plot
 ![rplot01](https://user-images.githubusercontent.com/25735405/40893807-73736cb6-6759-11e8-9298-aa7d95b9fb64.png)
 
 Price Vs. Overall Condition (1-10 scale, 10 being best condition)
@@ -231,28 +217,6 @@ names(clean) <- make.names(names(clean))
 clean <- clean %>% mutate_if(is.character,as.factor)
 ```
 
-
-
-Plotting with Outliers 
->>>>>>> cae0f15bab73f1ff22388e80a7ce9fa9a04296da
-![rplot4](https://user-images.githubusercontent.com/25735405/41139323-b83e942a-6a9b-11e8-81a4-3f285c08a510.png)
-
-Plotting without Outliers
-![rplot03](https://user-images.githubusercontent.com/25735405/41139466-9f5bbd06-6a9c-11e8-953a-ebaeaf57ee77.png)
-
-<<<<<<< HEAD
-As we run the data for the missing values we see that there are 34 features with missing values, but I'm only going to list the top 5 to address those:
-1. PoolQC : Pool quality
-2. MiscFeature: Miscellaneious feature not covered in other categories
-3. Alley: Type of alley access to propety
-4. Fence: Fence Quality
-5. FireplaceQU: Fireplace Quality
-=======
-Missing Values Graphic for Test Data
-![missingness test](https://user-images.githubusercontent.com/25735405/41495351-f42e1b56-70d9-11e8-9817-9b26a042b0dd.png)
-
-Train Data
-![missingness train](https://user-images.githubusercontent.com/25735405/41495353-f5f3cb0c-70d9-11e8-9c38-4552d7b34a6c.png)\
 
 
 Looking at the data we have a ton of values that are missing data. I've decided to input the missing values into missing data points based on what would most make sense for my model. For instance, the variable for Lot Frontage has missing values. When I run a summary for this data, I get the following: 
@@ -309,9 +273,6 @@ Residual standard error: 75870 on 1455 degrees of freedom
 Multiple R-squared:  0.09035,	Adjusted R-squared:  0.08785 
 F-statistic: 36.13 on 4 and 1455 DF,  p-value: < 0.00000000000000022
 ```
-
-
-
 The result I focused on here was R-Squared. R – squared is a statistical measure of how close the data are to the fitted regression line. Typically, the higher the R-squared, the better the model fits your data. So in this case my R-squared value was: 
 The Adjusted R-Squared of . is the data I’m concered with. It should be noted that just because an R-squared value is not high,that does not mean that the model is bad. You can also have a high R-squared value, and the model does not fit the data 
 
@@ -421,5 +382,7 @@ F-statistic: 86.11 on 79 and 2839 DF,  p-value: < 0.00000000000000022
 
 
 ## CONCLUSIONS
+The biggest hurdle I had in this project was figuring out how to handle the missing data. This took the majority of my time to figure out how to first of all find what was missing, then repalce that data, and figure out what to replace that data with. 
 
+Once I was able to get that portion done, my next set of challenges was getting the newly cleaned data to work propertly in basic linear, rpart, and randomForest models. I was hoping to get an adaboost model in there, but I ran out of time. As I expected, the linear model performed the worst, followed by the rpart model, then finally the random forest model. 
 
