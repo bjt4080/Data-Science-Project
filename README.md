@@ -1,5 +1,6 @@
 # MSDS 692 DATA SCIENCE PRACTICUM 
 Ben Turner
+
 Predicting Housing Prices in Ames, Iowa
 
 # Project Overview
@@ -8,7 +9,7 @@ This project will be evaluating 79 different variables that are provided in a Ka
 
 The dependent variable in this project will be the Sale Price.  In this project we are going to try to determine how to predict housing prices based on home variables.
 
-## EDA (EXPLATORY DATA ANALYIS)
+## EDA (EXPLATORY DATA ANALYSIS)
 The EDA will begin by trying to understand how the dependent variables and independent variables relate to each other and the cause for that relationship. Our EDA will also involve some data cleaning, how to handle the missing data, and how to deal with the categorical variables. 
 
 The data for this project is split up between a test and a train data set. When running the first initial EDA, we find that we have A LOT of missing data. So we will not be able to run a reliable predictive model until we will those values in. Overall there are 34 different variables missing data or NA’s, and a grand total of 13,965 NA or missing values in total.  
