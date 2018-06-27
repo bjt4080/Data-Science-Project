@@ -223,41 +223,35 @@ Now that we have our data cleaned up, let's start putting the data into some mod
 
 
 #Linear Graphs
+
 Residuals vs. Fitted Plots
-This plot shows error Residuals vs fitted values.
-The dotted line at y=0 indicates our fit line.
-Any point on fit line obviously has zero residual. Points above have positive residuals and points below have negative residuals.
-The red line is the the smoothed high order polynomial curve to give us an idea of pattern of residual movement.
+
+*This plot shows error Residuals vs fitted values.
+*The dotted line at y=0 indicates our fit line.
+*Any point on fit line obviously has zero residual. Points above have positive residuals and points below have negative residuals.
+*The red line is the the smoothed high order polynomial curve to give us an idea of pattern of residual movement.
 In our case we can see that our residuals have curved pattern. This could mean that we may get a better model is we try a  model with a quadratic term included. We will explore this point further by actually trying this to see if it helps
 
 Normal Q-Q Plot
 
-The Normal Q-Q plot is used to check if our residuals follow Normal distribution or not.
-The residuals are normally distributed if the points follow the dotted line closely
-My graph indicates that most points are within the normal distribution, so my model appears to pass the test of normality
+*The Normal Q-Q plot is used to check if our residuals follow Normal distribution or not.
+*The residuals are normally distributed if the points follow the dotted line closely
+*My graph indicates that most points are within the normal distribution, so my model appears to pass the test of normality
 
 
 Scale – Location Plot
 
-Scale location plot indicates  spread of points across predicted values range.
-One of the assumptions for Regression is Homoscedasticity meaning variance should be reasonably equal across the predictor range.
-
-As residuals spread wider from each other the red spread line goes up. In my graph, it appears that around the 100,000 mark, it looks like the residuals are getting closer to each other therefore causing the red spread line to go down
+*Scale location plot indicates  spread of points across predicted values range.
+*One of the assumptions for Regression is Homoscedasticity meaning variance should be reasonably equal across the predictor range.
+*As residuals spread wider from each other the red spread line goes up. In my graph, it appears that around the 100,000 mark, it looks like the residuals are getting closer to each other therefore causing the red spread line to go down
 A horizontal red line is ideal and would indicate that residuals have uniform variance across the range.
 
 Residuals vs Leverage Plot
 
-This plot took was a little harder to grasp when I first looked into what it’s telling us. 
-Influence : The Influence of an observation can be thought of in terms of how much the predicted scores would change  if the observation is excluded. Cook’s Distance is a pretty good measure of influence of an observation.
-Leverage : The leverage of an observation is based on how much the observation’s value on the predictor variable differs from the mean of the predictor variable. The more the leverage of an observation , the greater potential that point has in terms of influence.
-
-What we are concerned with here is that if any points land outside the two dotted lines, meaning those points has very high leverage or potential for influencing our model. So typically if I did have points in that range, I would most likely want to exclude those points.  My model have all points within the desired range
-
-
-
-
-
-
+*This plot took was a little harder to grasp when I first looked into what it’s telling us. 
+*Influence : The Influence of an observation can be thought of in terms of how much the predicted scores would change  if the observation is excluded. Cook’s Distance is a pretty good measure of influence of an observation.
+*Leverage : The leverage of an observation is based on how much the observation’s value on the predictor variable differs from the mean of the predictor variable. The more the leverage of an observation , the greater potential that point has in terms of influence.
+*What we are concerned with here is that if any points land outside the two dotted lines, meaning those points has very high leverage or potential for influencing our model. So typically if I did have points in that range, I would most likely want to exclude those points.  My model have all points within the desired range
 
 ```{r}
 #This is a very basic linear model using only lot's square footage, bedrooms, and month 
@@ -599,7 +593,9 @@ So I was able to have what I think was a little bit more success in my 2nd try w
  
 
 ## CONCLUSIONS
-The biggest hurdle I had in this project was figuring out how to handle the missing data. This took the majority of my time to figure out how to first of all find what was missing, then repalce that data, and figure out what to replace that data with. 
+As we made the models a bit more complicated we were able to get better results for our predictions. in order from least effective to most effective, it was linear regression, then using the recursive partitioning in caret, then finally the random forest gave us the best model to be able to predict a final house price. 
+Given this was my first time around kaggle and a practical project, it was very interesting because what i thought i was going to be doing most of my work was the models, but the bulk of the time to get this data was just figuring out how to handle the missing data. there are much more sophisticated approaches out there to be used, but overall i believe the models used here explain 
 
-Once I was able to get that portion done, my next set of challenges was getting the newly cleaned data to work propertly in basic linear, rpart, and randomForest models. I was hoping to get an adaboost model in there, but I ran out of time. As I expected, the linear model performed the worst, followed by the rpart model, then finally the random forest model. 
+I believe next time given this same problem, i would do some more feature engineering to zoom in on what variables have the largest effect on the sale price. 
+
 
